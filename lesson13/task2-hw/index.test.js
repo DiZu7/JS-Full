@@ -16,3 +16,10 @@ it('should get result of division', () => {
   const result = calc('1 / 2');
   expect(result).toEqual('1 / 2 = 0.5');
 });
+
+it('should get null', () => {
+  const result = calc(1 / 2);
+  expect(result).toEqual(null);
+});
+
+
