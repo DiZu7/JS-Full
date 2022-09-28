@@ -4,3 +4,4 @@ export function setTitle(text) {
 }
 
 setTitle('new text added');
+setTitle('another new text added');
