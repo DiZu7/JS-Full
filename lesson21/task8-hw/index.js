@@ -19,5 +19,3 @@ export function finishList() {
   specialItem.after(listItemSixth);
   listItemSixth.textContent = 6;
 }
-
-finishList();
