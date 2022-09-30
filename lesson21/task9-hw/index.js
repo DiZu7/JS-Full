@@ -9,7 +9,3 @@ export function finishForm() {
   const inputPassword = document.querySelector('input[name="password"]');
   inputPassword.setAttribute('type', 'password');
 }
-
-// test data
-
-finishForm();
