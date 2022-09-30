@@ -7,5 +7,3 @@ export function manageClasses() {
     classFour.classList.add('another-class');
   }
 }
-
-manageClasses();
