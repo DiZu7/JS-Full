@@ -10,4 +10,6 @@ export function finishForm() {
   inputPassword.setAttribute('type', 'password');
 }
 
+// test data
+
 finishForm();
