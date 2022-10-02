@@ -1,10 +1,7 @@
 const inputElem = document.querySelector('.task-status');
 
 const consoleLog = () => {
-  if (inputElem.checked) {
-    console.log(true);
-  }
-  console.log(false);
+  console.log(inputElem.checked);
 };
 
 inputElem.addEventListener('change', consoleLog);
