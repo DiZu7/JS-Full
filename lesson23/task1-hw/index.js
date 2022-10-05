@@ -33,7 +33,6 @@ const renderTasks = tasksList => {
 renderTasks(tasks);
 
 const regenaretaTasks = () => {
-  // const listElem = document.querySelector('.list');
   listElem.innerHTML = '';
 
   renderTasks(tasks);
@@ -58,16 +57,11 @@ createBtnElem.addEventListener('click', createNewTask);
 
 const onSwitch = event => {
   const checkboxId = Number(event.target.dataset.id);
+
   const chosedTask = tasks[checkboxId];
   chosedTask.done = !chosedTask.done;
 
   regenaretaTasks();
-
-  const checkboxElems = document.querySelectorAll('.list__item-checkbox');
-
-  checkboxElems.forEach(checkboxElem => checkboxElem.addEventListener('click', onSwitch));
 };
 
-const checkboxElems = document.querySelectorAll('.list__item-checkbox');
-
-checkboxElems.forEach(checkboxElem => checkboxElem.addEventListener('click', onSwitch));
+listElem.addEventListener('click', onSwitch);
