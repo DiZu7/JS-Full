@@ -32,28 +32,42 @@ const renderTasks = tasksList => {
 
 renderTasks(tasks);
 
-const createBtnElem = document.querySelector('.create-task-btn');
+const regenaretaTasks = () => {
+  // const listElem = document.querySelector('.list');
+  listElem.innerHTML = '';
+
+  renderTasks(tasks);
+};
 
 const createNewTask = event => {
   event.preventDefault();
   const taskInputElem = document.querySelector('.task-input');
-  // if (taskInputElem.value === '') {
-  //   return;
-  // }
+  if (taskInputElem.value === '') {
+    return;
+  }
   tasks.push({ text: taskInputElem.value, done: false });
-  const listElem = document.querySelector('.list');
-  listElem.innerHTML = '';
 
-  renderTasks(tasks);
   taskInputElem.value = '';
+
+  regenaretaTasks();
 };
+
+const createBtnElem = document.querySelector('.create-task-btn');
 
 createBtnElem.addEventListener('click', createNewTask);
 
-const checkboxElem = document.querySelector('.list__item-checkbox');
+const onSwitch = event => {
+  const checkboxId = event.target.dataset.id;
+  const chosedTask = tasks[checkboxId];
+  chosedTask.done = !chosedTask.done;
 
-const ifChecked = () => {
+  regenaretaTasks();
 
+  const checkboxElems = document.querySelectorAll('.list__item-checkbox');
+
+  checkboxElems.forEach(checkboxElem => checkboxElem.addEventListener('click', onSwitch));
 };
 
-checkboxElem.addEventListener('click', ifChecked);
+const checkboxElems = document.querySelectorAll('.list__item-checkbox');
+
+checkboxElems.forEach(checkboxElem => checkboxElem.addEventListener('click', onSwitch));
