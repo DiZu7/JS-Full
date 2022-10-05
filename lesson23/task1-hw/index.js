@@ -57,7 +57,7 @@ const createBtnElem = document.querySelector('.create-task-btn');
 createBtnElem.addEventListener('click', createNewTask);
 
 const onSwitch = event => {
-  const checkboxId = event.target.dataset.id;
+  const checkboxId = Number(event.target.dataset.id);
   const chosedTask = tasks[checkboxId];
   chosedTask.done = !chosedTask.done;
 
