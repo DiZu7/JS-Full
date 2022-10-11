@@ -8,6 +8,7 @@ export function dayOfWeek(date, days) {
 }
 
 // test data
-const result = dayOfWeek(new Date(2019, 0, 1), 14);
+
+const result = dayOfWeek(new Date(2019, 0, 1), 2);
 
 console.log(result);
