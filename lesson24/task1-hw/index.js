@@ -14,16 +14,6 @@ export function getDiff(startDate, endDate) {
 
   const seconds = Math.floor((((diffTime % dayTime) % hourTime) % minTime) / secondTime);
 
-  // const days = Math.floor(diffTime / dayTime);
-
-  // const hours = Math.floor((diffTime - days * dayTime) / hourTime);
-
-  // const mins = Math.floor((diffTime - days * dayTime - hours * hourTime) / minTime);
-
-  // const seconds = Math.floor(
-  //   (diffTime - days * dayTime - hours * hourTime - mins * minTime) / secondTime,
-  // );
-
   return `${days}d ${hours}h ${mins}m ${seconds}s`;
 }
 
