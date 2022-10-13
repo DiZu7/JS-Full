@@ -1,5 +1,5 @@
 export function getDiff(startDate, endDate) {
-  const diffTime = new Date(endDate.getTime() - startDate.getTime());
+  const diffTime = new Date(Math.abs(endDate.getTime() - startDate.getTime()));
 
   const days = Math.floor((diffTime / (1000 * 60 * 60 * 24)) % 30);
   const hours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
