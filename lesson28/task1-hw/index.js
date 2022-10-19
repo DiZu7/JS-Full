@@ -1,4 +1,5 @@
 export const shmoment = initValue => {
+  const clonedInitValue = new Date(initValue);
   const units = {
     years: 'FullYear',
     months: 'Month',
@@ -11,17 +12,17 @@ export const shmoment = initValue => {
 
   const dateCalculator = {
     add(unit, value) {
-      initValue[`set${units[unit]}`](initValue[`get${units[unit]}`]() + value);
+      clonedInitValue[`set${units[unit]}`](clonedInitValue[`get${units[unit]}`]() + value);
       return this;
     },
 
     subtract(unit, value) {
-      initValue[`set${units[unit]}`](initValue[`get${units[unit]}`]() - value);
+      clonedInitValue[`set${units[unit]}`](clonedInitValue[`get${units[unit]}`]() - value);
       return this;
     },
 
     result() {
-      return initValue;
+      return clonedInitValue;
     },
   };
 
