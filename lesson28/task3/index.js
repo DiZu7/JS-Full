@@ -7,3 +7,6 @@ console.log(twiceResult);
 export const triple = mult(3);
 const tripleResult = triple(9);
 console.log(tripleResult);
+
+
+
