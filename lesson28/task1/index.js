@@ -9,7 +9,7 @@ const calc = initValue => {
       result *= number;
       return this;
     },
-    substract(number) {
+    subtract(number) {
       result -= number;
       return this;
     },
@@ -25,11 +25,11 @@ const calc = initValue => {
   return calculator;
 };
 
-const result = calc(3).add(2).mult(4).div(10).substract(5).result();
+const result = calc(3).add(2).mult(4).div(10).subtract(5).result();
 console.log(result);
 
-const result2 = calc(100).add(2).mult(4).div(10).substract(5).result();
+const result2 = calc(100).add(2).mult(4).div(10).subtract(5).result();
 console.log(result2);
 
-const result3 = calc(5).mult(4).div(10).add(3).substract(5).result();
+const result3 = calc(5).mult(4).div(10).add(3).subtract(5).result();
 console.log(result3);
