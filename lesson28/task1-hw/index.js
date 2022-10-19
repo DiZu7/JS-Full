@@ -1,36 +1,27 @@
 export const shmoment = initValue => {
-  let result = new Date(initValue).getTime();
-  const yearTime = 1000 * 60 * 60 * 24 * 365;
-  const monthTime = 1000 * 60 * 60 * 24 * 30;
-  const dayTime = 1000 * 60 * 60 * 24;
-  const hourTime = 1000 * 60 * 60;
-  const minuteTime = 1000 * 60;
-  const secondTime = 1000;
-  const millisecondTime = 1;
-
   const units = {
-    years: yearTime,
-    months: monthTime,
-    days: dayTime,
-    hours: hourTime,
-    minutes: minuteTime,
-    seconds: secondTime,
-    milliseconds: millisecondTime,
+    years: 'FullYear',
+    months: 'Month',
+    days: 'Date',
+    hours: 'Hours',
+    minutes: 'Minutes',
+    seconds: 'Seconds',
+    milliseconds: 'Milliseconds',
   };
 
   const dateCalculator = {
     add(unit, value) {
-      result += units[unit] * value;
+      initValue[`set${units[unit]}`](initValue[`get${units[unit]}`]() + value);
       return this;
     },
 
     subtract(unit, value) {
-      result -= units[unit] * value;
+      initValue[`set${units[unit]}`](initValue[`get${units[unit]}`]() - value);
       return this;
     },
 
     result() {
-      return new Date(result);
+      return initValue;
     },
   };
 
