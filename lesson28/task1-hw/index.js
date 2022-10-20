@@ -1,28 +1,39 @@
-export const shmoment = initValue => {
-  const clonedInitValue = new Date(initValue);
-  const units = {
-    years: 'FullYear',
-    months: 'Month',
-    days: 'Date',
-    hours: 'Hours',
-    minutes: 'Minutes',
-    seconds: 'Seconds',
-    milliseconds: 'Milliseconds',
-  };
+const getMethodsNames = {
+  years: 'getFullYear',
+  months: 'getMonth',
+  days: 'getDate',
+  hours: 'getHours',
+  minutes: 'getMinutes',
+  seconds: 'getSeconds',
+  milliseconds: 'getMilliseconds',
+};
+
+const setMethodsNames = {
+  years: 'setFullYear',
+  months: 'setMonth',
+  days: 'setDate',
+  hours: 'setHours',
+  minutes: 'setMinutes',
+  seconds: 'setSeconds',
+  milliseconds: 'setMilliseconds',
+};
+
+export const shmoment = initDate => {
+  let result = new Date(initDate);
 
   const dateCalculator = {
     add(unit, value) {
-      clonedInitValue[`set${units[unit]}`](clonedInitValue[`get${units[unit]}`]() + value);
+      const currentUnitValue = result[getMethodsNames[unit]]();
+      result = new Date(result[setMethodsNames[unit]](currentUnitValue + value));
       return this;
     },
 
     subtract(unit, value) {
-      clonedInitValue[`set${units[unit]}`](clonedInitValue[`get${units[unit]}`]() - value);
-      return this;
+      return this.add(unit, -value);
     },
 
     result() {
-      return clonedInitValue;
+      return result;
     },
   };
 
