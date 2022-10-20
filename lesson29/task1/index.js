@@ -1,4 +1,4 @@
-export const addImage = (imgSrc, callback) => {
+export const AddImage = (imgSrc, callback) => {
   const imgElem = document.createElement('img');
   imgElem.setAttribute('alt', 'Picture');
   imgElem.src = imgSrc;
@@ -30,7 +30,7 @@ const onImageLoaded = (error, imgElem) => {
   sizeElem.textContent = `${width} x ${height}`;
 };
 
-addImage(
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
+AddImage(
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--22729159.jpg',
   onImageLoaded,
 );
