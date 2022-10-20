@@ -1,3 +1,6 @@
+'use strict';
+
+
 export const pinger = (count, period) => {
   let i = count;
   console.log('Ping');
