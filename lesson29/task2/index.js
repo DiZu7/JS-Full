@@ -2,8 +2,6 @@
 
 export const pinger = (count, period) => {
   let i = count;
-  console.log('Ping');
-
   const interval = setInterval(() => {
     if (--i > 0) {
       console.log('Ping');
@@ -11,6 +9,9 @@ export const pinger = (count, period) => {
       clearInterval(interval);
     }
   }, period);
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Ping');
+  });
 };
 
 // // examples
