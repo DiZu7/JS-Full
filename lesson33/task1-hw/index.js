@@ -21,18 +21,3 @@ export function getTaskById(taskId) {
     .then(response => response.json())
     .then(tasksList => tasksList.filter(taskData => taskId === taskData.id));
 }
-
-// export function getTaskById(taskId) {
-//   return getTasksList().then(tasksList => {
-//     return tasksList.filter(taskData => taskId === taskData.id);
-//   });
-// }
-
-// examples
-// getTasksList().then(tasksList => {
-//   console.log(tasksList); // ==> [ {'id':'1', 'isDone':false ... }, {'id':'2', 'isDone':false ... }, ...]
-// });
-
-// getTaskById('2').then(taskData => {
-//   console.log(taskData); // ==> { 'id': '2', 'text': 'District Communications Specialist', 'isDone': false, 'createdDate': 1651499052, 'finishedDate': 1651499052 }
-// });
