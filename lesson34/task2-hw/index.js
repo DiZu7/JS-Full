@@ -32,8 +32,8 @@ const onSignUp = e => {
   saveData(userData)
     .then(response => response.text())
     .then(data => {
-      alert(data);
       formElem.reset();
+      alert(data);
     });
 };
 
