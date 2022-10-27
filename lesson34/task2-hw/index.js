@@ -31,7 +31,10 @@ const onSignUp = e => {
   const userData = Object.fromEntries(new FormData(formElem));
   saveData(userData)
     .then(response => response.json())
-    .then(data => alert(JSON.stringify(data)));
+    .then(data => {
+      alert(JSON.stringify(data));
+      formElem.reset();
+    });
 };
 
 formElem.addEventListener('submit', onSignUp);
