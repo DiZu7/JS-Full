@@ -1,11 +1,7 @@
 const baseUrl = 'https://63597995ff3d7bddb9a34f03.mockapi.io/api/v1/tasks';
 
-const mapTasks = tasks => tasks.map(({ _id, ...rest }) => ({ ...rest, id: _id }));
-
 export const getTasksList = () => {
-  return fetch(baseUrl)
-    .then(response => response.json())
-    .then(tasks => mapTasks(tasks));
+  return fetch(baseUrl).then(response => response.json());
 };
 
 export const createTask = taskData => {
