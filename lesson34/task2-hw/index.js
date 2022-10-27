@@ -30,9 +30,9 @@ const onSignUp = e => {
   e.preventDefault();
   const userData = Object.fromEntries(new FormData(formElem));
   saveData(userData)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
-      alert(data);
+      alert(JSON.stringify(data));
       formElem.reset();
     });
 };
