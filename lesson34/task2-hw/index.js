@@ -30,11 +30,8 @@ const onSignUp = e => {
   e.preventDefault();
   const userData = Object.fromEntries(new FormData(formElem));
   saveData(userData)
-    .then(response => response.text())
-    .then(data => {
-      formElem.reset();
-      alert(data);
-    });
+    .then(response => response.json())
+    .then(data => alert(JSON.stringify(data)));
 };
 
 formElem.addEventListener('submit', onSignUp);
