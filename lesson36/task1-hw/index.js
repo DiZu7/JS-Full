@@ -8,9 +8,9 @@ export const getUsersBlogs = async users => {
     fetch(`https://api.github.com/users/${userId}`).then(response => response.json()),
   );
 
-  const usersBlogs = await Promise.all(requests).then(usersData =>
-    usersData.map(userData => userData.blog),
-  );
+  const usersBlogs = await Promise.all(requests)
+    .then(usersData => usersData.map(userData => userData.blog))
+    .catch(error => error);
 
   return usersBlogs;
 };
