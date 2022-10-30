@@ -3,14 +3,15 @@
 // return userData.blog
 // do this comands inside Promise.all (iterate users array by map)
 
-export const getUsersBlogs = users => {
-  return Promise.all(
-    users.map(async userId => {
-      const response = await fetch(`https://api.github.com/users/${userId}`);
-      const userData = await response.json();
-      return userData.blog;
+export const getUsersBlogs = async users => {
+  const result = await Promise.all(
+    users.map(userId => {
+      return fetch(`https://api.github.com/users/${userId}`)
+        .then(response => response.json())
+        .then(userData => userData.blog);
     }),
   );
+  return result;
 };
 
 // examples
