@@ -8,7 +8,10 @@ export const getUsersBlogs = async users => {
     users.map(userId => {
       return fetch(`https://api.github.com/users/${userId}`)
         .then(response => response.json())
-        .then(userData => userData.blog);
+        .then(userData => userData.blog)
+        .catch(error => {
+          throw new Error(error);
+        });
     }),
   );
 
