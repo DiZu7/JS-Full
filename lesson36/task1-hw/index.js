@@ -4,11 +4,13 @@
 // do this comands inside Promise.all (iterate users array by map)
 
 export const getUsersBlogs = async users => {
-  const result = await Promise.all(
-    users.map(userId => {
-      return fetch(`https://api.github.com/users/${userId}`).then(response => response.json());
-    }),
-  ).then(usersData => usersData.map(userData => userData.blog));
+  const promise = users.map(userId => {
+    return fetch(`https://api.github.com/users/${userId}`).then(response => response.json());
+  });
+
+  const result = await Promise.all(promise).then(usersData =>
+    usersData.map(userData => userData.blog),
+  );
 
   return result;
 };
