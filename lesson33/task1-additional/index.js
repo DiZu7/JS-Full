@@ -47,9 +47,9 @@ export const getMostActiveDevs = parameters => {
     });
 };
 
-getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
-  console.log(result),
-);
+// getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
+//   console.log(result),
+// );
 
 // => [
 //       {count: 5, name: 'Tom', email: 'tom@google.com'},
