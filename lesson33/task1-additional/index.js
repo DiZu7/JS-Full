@@ -12,16 +12,16 @@
 //   4.3. return result array
 // 5. return fetch
 
+
 export const getMostActiveDevs = parameters => {
   const { days, userId, repoId } = parameters;
-  const searchingDate = Date.now() - days * 86400000;
+  const day = new Date(Date.now()).getDate();
+  const dateInPast = new Date(Date.now()).setDate(day - days);
 
   return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
     .then(response => response.json())
     .then(dataCommits => dataCommits.map(({ commit }) => commit.author))
-    .then(authorsData =>
-      authorsData.filter(({ date }) => new Date(date).getTime() >= searchingDate),
-    )
+    .then(authorsData => authorsData.filter(({ date }) => new Date(date).getTime() >= dateInPast))
     .then(filteredByDateAuthorsInfo => {
       const result = [];
 
@@ -47,9 +47,9 @@ export const getMostActiveDevs = parameters => {
     });
 };
 
-// getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
-//   console.log(result),
-// );
+getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
+  console.log(result),
+);
 
 // => [
 //       {count: 5, name: 'Tom', email: 'tom@google.com'},
