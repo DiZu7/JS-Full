@@ -1,16 +1,17 @@
 // input: array
 // output: obj
 
-// const formatter = new Intl.DateTimeFormat('en', { month: 'short' });
+const formatter = new Intl.DateTimeFormat('en', { month: 'short' });
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 export const studentsBirthDays = students => {
   return students
     .slice()
     .sort((a, b) => new Date(a.birthDate).getDate() - new Date(b.birthDate).getDate())
     .reduce((acc, { name, birthDate }) => {
-      const month = months[new Date(birthDate).getMonth()];
+      // const month = months[new Date(birthDate).getMonth()];
+      const month = formatter.format(new Date(birthDate));
       return { ...acc, [month]: acc[month] ? acc[month].concat(name) : [name] };
     }, {});
 };
