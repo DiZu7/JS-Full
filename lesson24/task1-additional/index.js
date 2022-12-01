@@ -3,7 +3,7 @@
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const studentsBirthDays = students => {
+export const studentsBirthDays = students => {
   const studentsObj = students.reduce((acc, student) => {
     const month = months[new Date(student.birthDate).getMonth()];
     return { ...acc, [month]: acc[month] ? acc[month].concat(student) : [student] };
