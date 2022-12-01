@@ -5,7 +5,7 @@
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const studentsBirthDays = students => {
+export const studentsBirthDays = students => {
   return students
     .slice()
     .sort((a, b) => new Date(a.birthDate).getDate() - new Date(b.birthDate).getDate())
