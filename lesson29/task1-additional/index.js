@@ -12,4 +12,4 @@ const sum = (...args) => {
   console.log([...args].reduce((acc, args) => acc + args, 0));
 };
 
-delay(2000, sum, this, 2, 3, 4);
+delay(2000, sum, null, 1, 2, 5, 2);
