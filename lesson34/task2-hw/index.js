@@ -13,12 +13,10 @@ const buttonElem = document.querySelector('.submit-button');
 const baseUrl = 'https://63949f6986829c49e8225bf8.mockapi.io/api/v1/events';
 // const baseUrl = 'https://63597995ff3d7bddb9a34f03.mockapi.io/api/v1/signUp';
 
-const onValidate = () => {
-  if (formElem.reportValidity()) {
-    buttonElem.removeAttribute('disabled');
-  }
-  buttonElem.setAttribute('disabled');
-};
+const onValidate = () =>
+  formElem.reportValidity()
+    ? buttonElem.removeAttribute('disabled')
+    : buttonElem.setAttribute('disabled');
 
 // const onValidate = () =>
 //   formElem.reportValidity()
