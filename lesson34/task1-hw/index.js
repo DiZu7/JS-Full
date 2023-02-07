@@ -34,7 +34,7 @@ export function updateUser(userId, userData) {
   });
 }
 
-// examples
+// TEST DATA
 // getUsersList().then(users => {
 //   console.log(users); // array of the user objects [{'id':'1', 'firstName':'Grayce' ... }, {'id':'2', 'firstName':'Ara' ... }, ...]
 // });

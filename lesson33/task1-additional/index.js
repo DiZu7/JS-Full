@@ -27,6 +27,19 @@ export const getMostActiveDevs = parameters => {
       authorsData.filter(({ date }) => new Date(date).getTime() >= daysAgo(days)),
     )
     .then(filteredByDateAuthorsInfo => {
+      filteredByDateAuthorsInfo.reduce((acc, name, emai) => {
+        if (acc.map(data => {
+          if (data.email === emai) {
+            data.count +=1
+          }
+        })
+         includes(elem.email)) {
+          return [...acc, { name: elem.name, email: elem.email, count: 1 }];
+        }
+   
+        return [...acc, { name, email, count: 1 }];
+      }, []);
+
       const result = [];
 
       filteredByDateAuthorsInfo.map(({ name, email }) => {
@@ -51,11 +64,13 @@ export const getMostActiveDevs = parameters => {
     });
 };
 
-// getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
-//   console.log(result),
-// );
+getMostActiveDevs({ days: 3, userId: 'charliermarsh', repoId: 'ruff' }).then(result =>
+  console.log(result),
+);
 
 // => [
 //       {count: 5, name: 'Tom', email: 'tom@google.com'},
 //       {count: 2, name: 'Bob', email: 'bob@google.com'},
 //    ]
+
+// const reduceRes = transactions.reduce((acc, el) => (el < 0 ? (acc += el) : acc), 0);
